@@ -121,7 +121,7 @@ class FitResults(object):
 
         if type(peaks) == str:
             f, ax = plt.subplots()
-            ax.imshow(vars(vars(self)[peaks])[quantity])
+            im = ax.imshow(vars(vars(self)[peaks])[quantity])
 
         elif type(peaks) == list:
             f, (axes) = plt.subplots(1, len(peaks))
