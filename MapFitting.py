@@ -13,6 +13,12 @@ from snv import snv                     ### Requires snv (available in same repo
 from lmfit import Model, Parameters
 from lmfit.models import LorentzianModel, LinearModel
 
+try:
+    from tqdm import notebook
+    from notebook import tqdm as notebook
+except:
+    from tqdm import tqdm_notebook as notebook
+
 class _FitDict(object):
     """
     A hidden class to contain fit results for an individual peak
@@ -296,7 +302,7 @@ class FitMap(object):
 
             fit_temp = []
             print("Fitting ROI {}".format(roi_id))
-            for x in sp.notebook(range(self.ROI[roi_id]["map"].shape[0])):
+            for x in notebook(range(self.ROI[roi_id]["map"].shape[0])):
                 for y in range(self.ROI[roi_id]["map"].shape[1]):
                     fit_results = m.fit(x=self.ROI[roi_id]["shift"],
                                         data=self.ROI[roi_id]["map"][x, y, :],
