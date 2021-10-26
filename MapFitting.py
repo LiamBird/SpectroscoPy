@@ -1,7 +1,7 @@
 """
 Version 1
 Created 26/10/2021
-
+Remember to include snv.py function in same directory! 
 """
 
 import matplotlib.pyplot as plt
@@ -9,7 +9,7 @@ import numpy as np
 import os
 import glob
 
-from snv import snv
+from snv import snv                     ### Requires snv (available in same repository)
 from lmfit import Model, Parameters
 from lmfit.models import LorentzianModel, LinearModel
 
