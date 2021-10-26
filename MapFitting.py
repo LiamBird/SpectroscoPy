@@ -62,7 +62,7 @@ class FitResults(object):
     def __init__(self, FitMap_object=None, savedir=None, loaddir=None):
         if FitMap_object != None:
             if savedir != None:
-                if savedir not in os.listdir():
+                if os.path.isdir(savedir) == False:
                     os.mkdir(savedir)
 
             peak_outputs = {}
