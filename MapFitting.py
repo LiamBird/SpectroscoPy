@@ -222,13 +222,13 @@ class FitMap(object):
 
         self._overlap_range = overlap_range
         self.ROI_groups = {}
-        for names, wns in peaks_to_fit.items():
+        for names, wns in self.peaks_to_fit.items():
             if len(self.ROI_groups) == 0:
                 self.ROI_groups.update([(1, [names])])
             else:
                 for groups, members in self.ROI_groups.items():
                     for item in members:
-                        if abs(wns-peaks_to_fit[item]) < overlap_range:
+                        if abs(wns-self.peaks_to_fit[item]) < overlap_range:
                             members.append(names)
                             new_line_needed = False
                             break
